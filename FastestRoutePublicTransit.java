@@ -68,8 +68,8 @@ public class FastestRoutePublicTransit {
           // Get the time we arrive at u.
           int current = times[u] + startTime;
 
-          // Calculate the total time it will take for this route.  This takes into consideration
-          // the various timing constraints associated with the route.
+          // Calculate the total time it will take for this route.
+          // This takes into consideration the various timing constraints associated with the route.
 
           travelTime = calculateTime(current, lengths[u][v], freq[u][v], first[u][v]);
 
@@ -98,8 +98,7 @@ public class FastestRoutePublicTransit {
       // If we arrive at the station before the first train, then add in the time we must wait.
       totalTime = currentTime < startTime ? startTime - currentTime : 0;
 
-      // If the trains are already running, then we only have to wait for the next
-      // scheduled train.
+      // If the trains are already running, then we only have to wait for the next scheduled train.
       if (totalTime == 0 && currentTime != startTime) {
         totalTime = (int) Math.abs((Math.ceil(currentTime / frequency) * frequency) - currentTime);
       }

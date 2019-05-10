@@ -52,7 +52,7 @@ public class PhysicsExperiment {
         continue;  // move on the next step
       }
 
-      // Look at all student and find the one who is signed up for this step and also
+      // Look at all students and find the one who is signed up for this step and also
       // is signed up for the most other steps.
       for (int student = 1; student <= numStudents; student++) {
         // Has this student agreed to do this step?
