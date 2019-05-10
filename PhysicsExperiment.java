@@ -217,7 +217,5 @@ public class PhysicsExperiment {
     int[][] signUpsExperiment3 = {{7, 10, 11}, {8, 9, 10}, {2, 3, 4, 5, 7}, {1, 5, 6, 7, 8}, {1, 3, 4, 8}};
     pe.makeExperimentAndSchedule(3, 5, 11, signUpsExperiment3);
 
-//    int[][] test = pe.makeSignUpLookup(6, signUpsExperiment1);
-//    pe.printResults(test);
   }
 }
