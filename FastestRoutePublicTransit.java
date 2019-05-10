@@ -12,7 +12,6 @@
  */
 public class FastestRoutePublicTransit {
 
-  static boolean DEBUG = true;
   /**
    * The algorithm that could solve for shortest travel time from a station S
    * to a station T given various tables of information about each edge (u,v)
@@ -71,15 +70,12 @@ public class FastestRoutePublicTransit {
 
           // Calculate the total time it will take for this route.  This takes into consideration
           // the various timing constraints associated with the route.
-          if (DEBUG)
-            System.out.println("Calculate time from " + toAlpha(u) + " to " + toAlpha(v) + " where times[u] is "
-                    + times[u] + " and transit time is " + lengths[u][v] + " and frequency is " + freq[u][v] + " and start time is " + first[u][v]);
+
           travelTime = calculateTime(current, lengths[u][v], freq[u][v], first[u][v]);
 
           // Update only if we have found a shorter path to v.
           if (times[u] + travelTime < times[v]) {
             times[v] = times[u] + travelTime;
-            if (DEBUG) System.out.println("Time to get to " + toAlpha(v) + " is " + times[v]);
           }
         }
       }
@@ -98,7 +94,6 @@ public class FastestRoutePublicTransit {
    */
   private int calculateTime(int currentTime, int travelTime, int frequency, int startTime) {
     int totalTime = 0;
-    if (DEBUG) System.out.println("Current Time: " + currentTime + " Travel time: " + travelTime + " Frequency: " + frequency + " Start time: " + startTime);
     if ( travelTime != 0 && frequency != 0) {
       // If we arrive at the station before the first train, then add in the time we must wait.
       totalTime = currentTime < startTime ? startTime - currentTime : 0;
@@ -107,16 +102,13 @@ public class FastestRoutePublicTransit {
       // scheduled train.
       if (totalTime == 0 && currentTime != startTime) {
         totalTime = (int) Math.abs((Math.ceil(currentTime / frequency) * frequency) - currentTime);
-        if (DEBUG) System.out.println("Time to wait for next train: " + totalTime);
       }
-      else {
-        if (DEBUG) System.out.println("Time to wait for first train: " + totalTime);
-      }
+
 
       // Add in the time it takes to travel the route.
       totalTime += travelTime;
     }
-    if (DEBUG) System.out.println("Calc total time: " + totalTime);
+
     return totalTime;
   }
 
