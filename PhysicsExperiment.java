@@ -1,7 +1,7 @@
 /**
  * Physics Experiment
  * Author: Adam vanWestrienen and Carolyn Yao
- * Does this compile or finish running within 5 seconds? Y/N
+ * Does this compile or finish running within 5 seconds? Y
  */
 
 /**
